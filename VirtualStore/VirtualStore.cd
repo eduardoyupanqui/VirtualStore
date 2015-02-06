@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Esta relacion es Requerida por default ; pero si se desea hacer Opcional, se tiene q agregar al map de shoppingitemdetail la siguiente &#xD;&#xA;HasRequired(p =&gt; p.Item)&#xD;&#xA;                .WithOptional(p=&gt;p.Detail);">
+    <Position X="7.312" Y="5.948" Height="1.526" Width="2.129" />
+  </Comment>
+  <Comment CommentText="1:1 requerida u 1:0 opcional">
+    <Position X="7.553" Y="3.729" Height="0.291" Width="1.796" />
+  </Comment>
+  <Comment CommentText="Uno a Muchos">
+    <Position X="9.185" Y="2.75" Height="0.291" Width="1.429" />
+  </Comment>
+  <Comment CommentText="Uno a Muchos">
+    <Position X="5.758" Y="2.375" Height="0.291" Width="1.429" />
+  </Comment>
+  <Comment CommentText="Uno a Muchos">
+    <Position X="12.175" Y="2.875" Height="0.291" Width="1.429" />
+  </Comment>
+  <Comment CommentText="Muchos a Muchos en una direccion">
+    <Position X="4.729" Y="5.781" Height="0.437" Width="1.283" />
+  </Comment>
+  <Comment CommentText="Como si fuera detalle">
+    <Position X="5.874" Y="0.848" Height="0.291" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Falta Mapear , pero contact es similar a localization">
+    <Position X="14.507" Y="7.412" Height="0.498" Width="2.67" />
+  </Comment>
+  <Comment CommentText="Muchos a Muchos en dos direcciones">
+    <Position X="17.3" Y="3.844" Height="0.395" Width="1.429" />
+  </Comment>
+  <Comment CommentText="Al ser abstract fuerzo a q un empleado sea interno o externo ; si queremos definir usuarios sin en especifico internal o external, se debe quitar el abstract , asi podremos crear instancias de la misma clase.">
+    <Position X="18.782" Y="10.058" Height="0.869" Width="3.473" />
+  </Comment>
+  <Comment CommentText="Ejm si es abstract siempre sera : ________________ EmployeeExternal emp = new EmployeeExternal(); o EmployeeInternal emp = new EmployeeInternal();  ...................................................................................................................... si es sin abstract siempre sera : _________________________ Employee emp = new EmployeeExternal(); o ________ Employee emp = new EmployeeInternal();  o ________ Employee emp = new Employee();">
+    <Position X="18.816" Y="11.027" Height="1.516" Width="3.473" />
+  </Comment>
+  <Comment CommentText="Tabla por jerarquía - Table per Hierarchy (TPH)">
+    <Position X="18.801" Y="6.888" Height="0.307" Width="3.437" />
+  </Comment>
+  <Class Name="VirtualStore.Product">
+    <Position X="3.75" Y="1.25" Width="1.5" />
+    <AssociationLine Name="Supplier" Type="VirtualStore.Supplier" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.5" Y="3.507" />
+        <Point X="4.5" Y="9.686" />
+        <Point X="13.75" Y="9.686" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>EAAAAAACAQAgAMAAAAAAAAAAgAAAAAAAACAAAAAACAA=</HashCode>
+      <FileName>Product.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Category" />
+      <Property Name="Supplier" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="VirtualStore.Music">
+    <Position X="2" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Music.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VirtualStore.Book">
+    <Position X="3.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAgAIAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Book.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Genre" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="VirtualStore.Movie">
+    <Position X="5.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAIAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Movie.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Genre" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="VirtualStore.Genre">
+    <Position X="4.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Genre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VirtualStore.ShoppingItem">
+    <Position X="7.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAAAAAAAAAAEAAAAAAAAgAAAIAAAAAAgAAACBA=</HashCode>
+      <FileName>ShoppingItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Product" />
+      <Property Name="ShoppingCart" />
+      <Property Name="Detail" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="VirtualStore.ShoppingCart">
+    <Position X="10.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAQCAAAEIAAAAAAAAAAABAAAgAAAAAAAAA=</HashCode>
+      <FileName>ShoppingCart.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Customer" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="VirtualStore.Customer">
+    <Position X="13.5" Y="1.25" Width="2" />
+    <AssociationLine Name="Delivery" Type="VirtualStore.Address">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.065" Y="0.172" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAQEAAACAAAIAAAAAAAQAAAAAAABAAAAAAAAAgAAg=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Residence" />
+      <Property Name="Delivery" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ShoppingCarts" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="VirtualStore.Address">
+    <Position X="13.5" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIIEAAAAAAAAIAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VirtualStore.ShoppingItemDetail">
+    <Position X="7.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAgAAAAAAAAAAAAQAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShoppingItemDetail.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Item" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="VirtualStore.Employee">
+    <Position X="17.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEIAAAAAAAAgAAAAAAAAAAAAgAAAAAAAAAACAAg=</HashCode>
+      <FileName>Employee.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="EmployeeExt" />
+      <Property Name="Localization" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Territories" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="VirtualStore.EmployeeExtended">
+    <Position X="20.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAACQAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>EmployeeExtended.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VirtualStore.Category">
+    <Position X="0.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAgAAAAAAAAAAACAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Category.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Products" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="VirtualStore.Supplier">
+    <Position X="13.75" Y="8" Width="1.5" />
+    <AssociationLine Name="Products" Type="VirtualStore.Product" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.75" Y="8.591" />
+        <Point X="4.625" Y="8.591" />
+        <Point X="4.625" Y="3.507" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-9.035" Y="4.589" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAgCAAAAAAAAAAAAAAAAAAAAAAgAAQ=</HashCode>
+      <FileName>Supplier.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Localization" />
+      <Property Name="Contact" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Products" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="VirtualStore.Contact">
+    <Position X="16.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEgAAAAAAAAAAgAAAAAAAAAAAAAAACIAAAAAA=</HashCode>
+      <FileName>Contact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VirtualStore.Territory">
+    <Position X="17.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAUACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Territory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Employees" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="VirtualStore.Employee2">
+    <Position X="18.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAgAAAAAAIIAAAAAAAAAIAAAACAAAAAAACAAg=</HashCode>
+      <FileName>Employee2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VirtualStore.EmployeeExternal">
+    <Position X="20.75" Y="7.25" Width="1.5" />
+    <InheritanceLine Type="VirtualStore.Employee2" FixedFromPoint="true">
+      <Path>
+        <Point X="20" Y="8.625" />
+        <Point X="20.75" Y="8.625" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>EmployeeExternal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VirtualStore.EmployeeInternal">
+    <Position X="20.75" Y="8.75" Width="1.5" />
+    <InheritanceLine Type="VirtualStore.Employee2" FixedFromPoint="true">
+      <Path>
+        <Point X="20" Y="8.625" />
+        <Point X="20.375" Y="8.625" />
+        <Point X="20.375" Y="9.366" />
+        <Point X="20.75" Y="9.366" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EmployeeInternal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
